@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "spkpvp"
+version = "0.1.0"
+description = "Launcher do SpkPvP Client (client de PvP para Minecraft com loja de cosméticos)"
+requires-python = ">=3.9"
+dependencies = []
+
+[project.scripts]
+spkpvp = "spkpvp.gui:main"
+
+[tool.setuptools]
+packages = ["spkpvp"]
+
+[tool.setuptools.package-data]
+spkpvp = ["web/*"]

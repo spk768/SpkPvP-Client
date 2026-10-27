@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "spkpvp",
+  "version": "${version}",
+  "name": "SpkPvP Client",
+  "description": "Client de PvP: HUD (FPS, CPS, keystrokes, armadura, poções), toggle sprint, zoom, fullbright e cosméticos.",
+  "authors": ["spk768"],
+  "contact": { "sources": "https://github.com/spk768/SpkPvP-Client" },
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "client": ["com.spkpvp.client.SpkPvPClient"]
+  },
+  "mixins": ["spkpvp.mixins.json"],
+  "depends": {
+    "fabricloader": ">=0.15.0",
+    "fabric-api": "*",
+    "minecraft": "~1.21.1",
+    "java": ">=21"
+  }
+}
