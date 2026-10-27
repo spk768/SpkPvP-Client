@@ -303,13 +303,15 @@ function renderChrome() {
   $("#cart-count").textContent = S.cart.length || "";
   $("#side-play").innerHTML = playButton(true);
   // carrinho na barra lateral
-  const total = S.cart.reduce((s, id) => s + (item(id)?.price || 0), 0);
+  // o carrinho salvo pode citar itens antes de o catálogo carregar
+  const cart = S.cart.map(item).filter(Boolean);
+  const total = cart.reduce((s, it) => s + it.price, 0);
   $("#sidebar-list").innerHTML = `
     <div class="sidebar-group">Atalhos</div>
     ${[["home", I.sword, "Jogar"], ["mods", I.sliders, "Mods do client"], ["store", I.cart, "Loja"], ["wardrobe", I.shirt, "Guarda-roupa"], ["logs", I.terminal, "Logs"]]
       .map(([v, icon, label]) => `<div class="side-item ${S.view === v ? "active" : ""}" data-act="nav" data-nav="${v}"><div class="thumb side-icon">${icon}</div><div class="info"><div class="name">${label}</div></div></div>`).join("")}
-    <div class="sidebar-group">Carrinho (${S.cart.length})</div>
-    ${S.cart.length ? S.cart.map((id) => `<div class="side-item" data-act="nav" data-nav="store">${preview(item(id), "thumb")}<div class="info"><div class="name">${esc(item(id).name)}</div><div class="meta">${brl(item(id).price)}</div></div><button class="quick-play" data-act="cart-remove" data-id="${esc(id)}" title="Remover">${I.x}</button></div>`).join("")
+    <div class="sidebar-group">Carrinho (${cart.length})</div>
+    ${cart.length ? cart.map((it) => `<div class="side-item" data-act="nav" data-nav="store">${preview(it, "thumb")}<div class="info"><div class="name">${esc(it.name)}</div><div class="meta">${brl(it.price)}</div></div><button class="quick-play" data-act="cart-remove" data-id="${esc(it.id)}" title="Remover">${I.x}</button></div>`).join("")
       + `<button class="btn primary block" style="margin-top:8px" data-act="checkout">${I.cart} Finalizar · ${brl(total)}</button>`
       : '<div class="faint" style="padding:4px 8px">Vazio. Veja a loja de cosméticos.</div>'}`;
   renderTasks();
