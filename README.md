@@ -4,6 +4,16 @@ Client de PvP para Minecraft: Java Edition, no estilo de Lunar, Badlion e LabyMo
 com loja de cosméticos paga por **Pix, boleto bancário, cartão de crédito, cartão de
 débito e PayPal**. O launcher usa a mesma interface do PackLauncher.
 
+## Download
+
+**[Baixar SpkPvP.exe (Windows)](https://github.com/spk768/SpkPvP-Client/releases/latest/download/SpkPvP.exe)**:
+sempre a versão mais recente, compilada pelo GitHub Actions a cada atualização do repositório.
+O mod (`spkpvp-1.21.1.jar`) fica na mesma [release](https://github.com/spk768/SpkPvP-Client/releases/latest)
+e é baixado sozinho pelo launcher.
+
+O `.exe` não é assinado digitalmente, então o Windows pode mostrar "O Windows protegeu o
+computador": clique em **Mais informações → Executar assim mesmo**.
+
 ![Loja](docs/loja.png)
 
 | Início | Mods do client | Checkout |
